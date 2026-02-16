@@ -5,12 +5,14 @@ A full-stack web application that uses forensic analysis techniques to detect if
 ## 🚀 Quick Start
 
 **Backend (Terminal 1):**
+
 ```bash
 pip install -r requirements.txt
 python app.py
 ```
 
 **Frontend (Terminal 2):**
+
 ```bash
 npm install
 npm run dev
@@ -29,12 +31,14 @@ Then open `http://localhost:3000` in your browser!
 ## Technologies
 
 ### Backend (Python)
+
 - Flask - Web framework
 - Pillow - Image processing
 - NumPy - Numerical analysis
 - Flask-CORS - Cross-origin resource sharing
 
 ### Frontend (React + Vite)
+
 - Vite - Fast build tool and dev server
 - React - UI framework
 - Tailwind CSS - Styling
@@ -45,11 +49,13 @@ Then open `http://localhost:3000` in your browser!
 ### Backend Setup
 
 1. **Install Python dependencies:**
+
 ```bash
 pip install -r requirements.txt
 ```
 
 2. **Run the Flask server:**
+
 ```bash
 python app.py
 ```
@@ -61,11 +67,13 @@ The server will start on `http://localhost:5000`
 1. **The project structure is already set up for you!** All files are included.
 
 2. **Install dependencies:**
+
 ```bash
 npm install
 ```
 
 3. **Start the development server:**
+
 ```bash
 npm run dev
 ```
@@ -117,6 +125,7 @@ npm run dev
 ## How It Works
 
 ### Error Level Analysis (ELA)
+
 ELA works by resaving the image at a known quality level and comparing it to the original. Areas that have been edited or tampered with will show different error levels because they've already been compressed differently than the rest of the image.
 
 - **Bright areas in ELA**: Indicate recent edits or inconsistent compression
@@ -124,13 +133,17 @@ ELA works by resaving the image at a known quality level and comparing it to the
 - **Patchy patterns**: May indicate copy-paste manipulation
 
 ### Metadata Analysis
+
 Examines EXIF data for:
+
 - Editing software signatures (Photoshop, GIMP, etc.)
 - Missing metadata (often stripped during editing)
 - Inconsistent timestamps or camera information
 
 ### Quality Metrics
+
 Analyzes statistical properties like:
+
 - Brightness distribution
 - Color variance
 - Compression artifacts
@@ -152,12 +165,14 @@ Analyzes statistical properties like:
 ## Example Scenarios
 
 **Likely Authentic:**
+
 - Low ELA variance
 - Complete EXIF metadata
 - No editing software tags
 - Consistent compression throughout
 
 **Likely Tampered:**
+
 - High ELA variance in specific regions
 - Missing or stripped metadata
 - Evidence of editing software
@@ -166,14 +181,17 @@ Analyzes statistical properties like:
 ## API Endpoints
 
 ### POST /api/analyze
+
 Analyzes an uploaded image for tampering
 
 **Request:**
+
 - Method: POST
 - Content-Type: multipart/form-data
 - Body: image file
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -190,6 +208,7 @@ Analyzes an uploaded image for tampering
 ```
 
 ### GET /api/health
+
 Health check endpoint
 
 ## License
