@@ -47,7 +47,7 @@ export default function ImageTamperingDetector() {
     formData.append('image', selectedImage);
 
     try {
-      const response = await fetch('http://localhost:5000/api/analyze', {
+      const response = await fetch('/api/analyze', {
         method: 'POST',
         body: formData,
       });
@@ -60,7 +60,7 @@ export default function ImageTamperingDetector() {
         setError(data.error || 'Analysis failed');
       }
     } catch (err) {
-      setError('Failed to connect to server. Make sure the Python backend is running on port 5000.');
+      setError('Failed to connect to server. Make sure the Python backend is running.');
     } finally {
       setLoading(false);
     }
