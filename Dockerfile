@@ -15,7 +15,8 @@ COPY requirements.txt .
 RUN npm install
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN python3 -m venv /opt/venv
+RUN /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
 COPY . .
@@ -30,5 +31,6 @@ EXPOSE 5000
 ENV ENVIRONMENT=production
 ENV RAILWAY_DEPLOYMENT=true
 
-# Run the Flask application
+# Activate virtual environment and run the Flask application
+ENV PATH="/opt/venv/bin:$PATH"
 CMD ["python", "app.py"]
